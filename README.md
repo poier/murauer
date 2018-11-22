@@ -1,1 +1,2 @@
-coming soon
+coming soon...  
+(Paper and additional material can be found at [project page](https://poier.github.io/murauer/))
