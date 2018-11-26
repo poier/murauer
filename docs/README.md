@@ -16,8 +16,7 @@
 
 <p>
 <center>
-<a href="documents/poier2019wacv_selfpublishing.pdf">[Paper (PDF)]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="documents/poier2019wacv_supp_selfpublishing.pdf">[Supplemental (PDF)]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#paper">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/poier/murauer">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
 </p>
@@ -50,6 +49,17 @@ which does not use unlabeled data and outperform many recent approaches already
 with about 1% of the labeled real data. 
 This presents a step towards faster deployment of learning based hand pose estimation, 
 making it accessible for a larger range of applications.
+
+---
+
+## Paper <a name="paper"></a>
+
+MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
+In WACV 2019.  
+<a href="https://arxiv.org/abs/1811.09497">[Paper & Supp. (arXiv)]</a>
+
+<a href="https://arxiv.org/abs/1811.09497">
+![Paper and supplemental material at arXiv.](./images/paper_thumbnails.png)</a>
 
 ---
 
