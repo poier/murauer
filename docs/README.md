@@ -76,11 +76,11 @@ Below you find text files with predicted joint positions for the NYU dataset
 
 *n* 	| Joint positions (uvd) | Joint positions (xyz) | Mean error (mm)
 ---: | --- | --- | ---: 
-10  	| [*n*10-uvd](../results/joint_pos_murauer_n10_wacv_uvd.txt) | [*n*10-xyz](../results/joint_pos_murauer_n10_wacv_xyz.txt) | 16.4
-100  	| [*n*100-uvd](../results/joint_pos_murauer_n100_wacv_uvd.txt) | [*n*100-xyz](../results/joint_pos_murauer_n100_wacv_xyz.txt) | 12.2
-1,000  	| [*n*1k-uvd](../results/joint_pos_murauer_n1000_wacv_uvd.txt) | [*n*1k-xyz](../results/joint_pos_murauer_n1000_wacv_xyz.txt) | 10.9
-10,000  | [*n*10k-uvd](../results/joint_pos_murauer_n10000_wacv_uvd.txt) | [*n*10k-xyz](../results/joint_pos_murauer_n10000_wacv_xyz.txt) | 9.9
-72,757  | [*n*73k-uvd](../results/joint_pos_murauer_n72757_wacv_uvd.txt) | [*n*73k-xyz](../results/joint_pos_murauer_n72757_wacv_xyz.txt) | 9.5
+10  	| [*n*10-uvd](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n10_wacv_uvd.txt) | [*n*10-xyz](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n10_wacv_xyz.txt) | 16.4
+100  	| [*n*100-uvd](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n100_wacv_uvd.txt) | [*n*100-xyz](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n100_wacv_xyz.txt) | 12.2
+1,000  	| [*n*1k-uvd](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n1000_wacv_uvd.txt) | [*n*1k-xyz](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n1000_wacv_xyz.txt) | 10.9
+10,000  | [*n*10k-uvd](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n10000_wacv_uvd.txt) | [*n*10k-xyz](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n10000_wacv_xyz.txt) | 9.9
+72,757  | [*n*73k-uvd](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n72757_wacv_uvd.txt) | [*n*73k-xyz](https://github.com/poier/murauer/tree/master/results/joint_pos_murauer_n72757_wacv_xyz.txt) | 9.5
 
 ---
 
