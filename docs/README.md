@@ -16,8 +16,9 @@
 
 <p>
 <center>
-<a href="#paper">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#paper">[Paper &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/poier/murauer">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#results">[Results &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
 </p>
 
@@ -60,6 +61,26 @@ In WACV 2019.
 
 <a href="https://arxiv.org/abs/1811.09497">
 ![Paper and supplemental material at arXiv.](./images/paper_thumbnails.png)</a>
+
+[[Paper as webpage]](https://www.arxiv-vanity.com/papers/1811.09497/) provided by 
+arxiv-vanity.com. 
+Not perfect (e.g., some figures are assembled wrongly) 
+but probably still easier to read on some devices.
+
+---
+
+## Results <a name="results"></a>
+
+Below you find text files with predicted joint positions for the NYU dataset 
+(for different numbers of labeled real samples, *n*, used for training).
+
+*n* 	| Joint positions (uvd) | Joint positions (xyz) | Mean error (mm)
+---: | --- | --- | ---: 
+10  	| [*n*10-uvd](../results/joint_pos_murauer_n10_wacv_uvd.txt) | [*n*10-xyz](../results/joint_pos_murauer_n10_wacv_xyz.txt) | 16.4
+100  	| [*n*100-uvd](../results/joint_pos_murauer_n100_wacv_uvd.txt) | [*n*100-xyz](../results/joint_pos_murauer_n100_wacv_xyz.txt) | 12.2
+1,000  	| [*n*1k-uvd](../results/joint_pos_murauer_n1000_wacv_uvd.txt) | [*n*1k-xyz](../results/joint_pos_murauer_n1000_wacv_xyz.txt) | 10.9
+10,000  | [*n*10k-uvd](../results/joint_pos_murauer_n10000_wacv_uvd.txt) | [*n*10k-xyz](../results/joint_pos_murauer_n10000_wacv_xyz.txt) | 9.9
+72,757  | [*n*73k-uvd](../results/joint_pos_murauer_n72757_wacv_uvd.txt) | [*n*73k-xyz](../results/joint_pos_murauer_n72757_wacv_xyz.txt) | 9.5
 
 ---
 
