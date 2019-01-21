@@ -17,6 +17,7 @@
 <p>
 <center>
 <a href="#paper">[Paper &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#poster">[Poster &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/poier/murauer">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="#results">[Results &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
@@ -66,6 +67,15 @@ In WACV 2019.
 arxiv-vanity.com. 
 Not perfect (e.g., some figures are assembled wrongly) 
 but probably still easier to read on some devices.
+
+---
+
+## Poster <a name="poster"></a>
+
+<a href="./documents/poier2019wacv_poster.pdf">[Poster]</a> presented at WACV 2019.  
+
+<a href="./documents/poier2019wacv_poster.pdf">
+![Poster presented at WACV 2019.](./images/poster_thumbnail.png)</a>
 
 ---
 
