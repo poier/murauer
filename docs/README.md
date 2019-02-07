@@ -16,10 +16,9 @@
 
 <p>
 <center>
-<a href="#paper">[Paper &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#poster">[Poster &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://arxiv.org/abs/1811.09497">[Paper &amp; Supp. (arXiv)]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="./documents/poier2019wacv_poster.pdf">[Poster]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/poier/murauer">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#results">[Results &#8595;]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
 </p>
 
@@ -54,7 +53,7 @@ making it accessible for a larger range of applications.
 
 ---
 
-## Paper <a name="paper"></a>
+## Paper
 
 MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
 In WACV 2019.  
@@ -70,7 +69,7 @@ but probably still easier to read on some devices.
 
 ---
 
-## Poster <a name="poster"></a>
+## Poster
 
 <a href="./documents/poier2019wacv_poster.pdf">[Poster]</a> presented at WACV 2019.  
 
@@ -79,7 +78,16 @@ but probably still easier to read on some devices.
 
 ---
 
-## Results <a name="results"></a>
+## Code
+
+[Code](https://github.com/poier/murauer) at github.  
+
+<a href="https://github.com/poier/murauer">
+![Sketch of the architecture.](./images/architecture.png)</a>
+
+---
+
+## Results
 
 Below you find text files with predicted joint positions for the NYU dataset 
 (for different numbers of labeled real samples, *n*, used for training).
@@ -99,7 +107,7 @@ If you can make use of this work, please cite:
 
 MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
 Georg Poier, Michael Opitz, David Schinagl and Horst Bischof.  
-In *Proc. WACV* (to be published), 2019.
+In *Proc. WACV*, 2019.
 
 Bibtex:
 ```
@@ -107,7 +115,6 @@ Bibtex:
   author = {Georg Poier and Michael Opitz and David Schinagl and Horst Bischof},  
   title = {% raw %}{{MURAUER}: Mapping Unlabeled Real Data for Label AUstERity}{% endraw %},  
   booktitle = {% raw %}{{Proc. IEEE Winter Conf. on Applications of Computer Vision (WACV)}}{% endraw %},  
-  note = {(to be published)},  
   year = {2019}
 }
 ```
