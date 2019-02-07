@@ -77,7 +77,7 @@ E.g., to use the model trained with all labeled real samples from the NYU datase
 mkdir -p results/pretrained_models
 wget -O results/pretrained_models/model_full_n73k.mdl https://files.icg.tugraz.at/f/71cd78dda19e4c4d8f67/?dl=1
 ```
-You can generate results using this one by:
+You can then generate results using this one by:
 ```
 cd source
 python main_run.py --model-filepath ../results/pretrained_models/model_full_n73k.mdl --no-train
@@ -127,7 +127,7 @@ That is, you could start the server exactly as in the usage example in the
 i.e., by calling
 ```
 docker run -d -p 8888:8888 -p 8889:8889 --name crayon alband/crayon
-```.
+```
 See [https://github.com/torrvision/crayon](https://github.com/torrvision/crayon) 
 for details.
 
@@ -135,7 +135,7 @@ for details.
 ## Citation
 If you can make use of this work, please cite:
 
-*MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
+MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
 Georg Poier, Michael Opitz, David Schinagl and Horst Bischof.  
 In *Proc. WACV*, 2019.
 
@@ -143,9 +143,8 @@ Bibtex:
 ```
 @inproceedings{Poier2019wacv_murauer,  
   author = {Georg Poier and Michael Opitz and David Schinagl and Horst Bischof},  
-  title = {% raw %}{{MURAUER}: Mapping Unlabeled Real Data for Label AUstERity}{% endraw %},  
-  booktitle = {% raw %}{{Proc. IEEE Winter Conf. on Applications of Computer Vision (WACV)}}{% endraw %},  
-  note = {(to be published)},  
+  title = {{MURAUER}: Mapping Unlabeled Real Data for Label AUstERity},  
+  booktitle = {{Proc. IEEE Winter Conf. on Applications of Computer Vision (WACV)}},  
   year = {2019}
 }
 ```
