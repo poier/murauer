@@ -115,8 +115,9 @@ We used Python 2.7.
 To run the code you can, e.g., install the following requirements:
 
  * [PyTorch](http://pytorch.org/) (tested with version 0.4.1; torch, torchvision)
- * enum34
+ * [OpenCV](https://opencv.org/) (tested with version 2.4.9)
  * matplotlib
+ * enum34
  * scipy
  * [pycrayon](https://github.com/torrvision/crayon)
 

@@ -80,7 +80,7 @@ but probably still easier to read on some devices.
 
 ## Code
 
-[Code](https://github.com/poier/murauer) at github.  
+[[Code]](https://github.com/poier/murauer) at github  
 
 <a href="https://github.com/poier/murauer">
 ![Sketch of the architecture.](./images/architecture.png)</a>

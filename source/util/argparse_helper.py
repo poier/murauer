@@ -48,7 +48,7 @@ def add_definitions_for_generic_script(parser):
                         help='Dataset Type (see data.basetypes.DatasetType)')
     parser.add_argument('--net-type', type=int, default=7,
                         help='Network Type (see data.basetypes.NetType)')
-    parser.add_argument('--do-load-pretrained-model', action='store_true', default=True,
+    parser.add_argument('--do-load-pretrained-model', action='store_true', default=False,
                         help='enables loading of a pre-trained model \
                         which is used to initialize the model')
     parser.add_argument('--optim-type', type=int, default=0,
