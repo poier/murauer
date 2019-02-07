@@ -143,9 +143,8 @@ Bibtex:
 ```
 @inproceedings{Poier2019wacv_murauer,  
   author = {Georg Poier and Michael Opitz and David Schinagl and Horst Bischof},  
-  title = {% raw %}{{MURAUER}: Mapping Unlabeled Real Data for Label AUstERity}{% endraw %},  
-  booktitle = {% raw %}{{Proc. IEEE Winter Conf. on Applications of Computer Vision (WACV)}}{% endraw %},  
-  note = {(to be published)},  
+  title = {{MURAUER}: Mapping Unlabeled Real Data for Label AUstERity},  
+  booktitle = {{Proc. IEEE Winter Conf. on Applications of Computer Vision (WACV)}},  
   year = {2019}
 }
 ```
