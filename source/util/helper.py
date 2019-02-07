@@ -30,7 +30,6 @@ def prepare_output_dirs_files(args, default_root_dir):
     args.out_path_results = os.path.join(root_dir, args.out_path, args.exp_name)
     args.out_path_results_config    = os.path.join(args.out_path_results, args.out_subdir_config)
     args.out_path_results_images    = os.path.join(args.out_path_results, args.out_subdir_images)
-    args.out_path_results_synthetic = os.path.join(args.out_path_results, args.out_subdir_results_synthetic)
     # Assemble some paths with filenames
     args.filepath_args = os.path.join(args.out_path_results_config, args.out_filename_args)
     args.log_filepath = os.path.join(args.out_path_results, args.out_filename_log)
@@ -43,8 +42,6 @@ def prepare_output_dirs_files(args, default_root_dir):
         os.makedirs(args.out_path_results_config)
     if not os.path.exists(args.out_path_results_images):
         os.makedirs(args.out_path_results_images)
-    if not os.path.exists(args.out_path_results_synthetic):
-        os.makedirs(args.out_path_results_synthetic)
         
         
 def save_params(filepath, args):
