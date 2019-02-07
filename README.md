@@ -127,7 +127,7 @@ That is, you could start the server exactly as in the usage example in the
 i.e., by calling
 ```
 docker run -d -p 8888:8888 -p 8889:8889 --name crayon alband/crayon
-```.
+```
 See [https://github.com/torrvision/crayon](https://github.com/torrvision/crayon) 
 for details.
 
