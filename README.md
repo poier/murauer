@@ -39,14 +39,23 @@ in `config/config_data_nyu.py`.
 
 By default, this will first pre-train the model using only synthetic data, then
 train the model using all data, and finally test it 
-(see below for using pre-trained models).
+(**see below for using pre-trained models**).
 The code will log the training and validation error using crayon 
-(see [https://github.com/torrvision/crayon](https://github.com/torrvision/crayon)),
+(see below),
 and output final results in the `results` folder.
 To change further settings you can adapt the respective configuration files 
 in the `config` folder or via the command-line 
 (see `python main_run.py --help` for details). 
-The default settings should reproduce the results from the paper.
+The default settings should reproduce the results from the paper 
+(actually the results should be slightly better than those from the paper - 
+mainly due to a bug fix wrt. some non-linearities and 
+training with a newer pytorch version (1.0.1)).
+Results using the pre-trained models:
+
+*n*  | 100 | 1,000 | 10,000 | 72,757
+---: | --- | --- | --- | --- | ---: 
+Mean error (mm) | 11.91 | 9.28 | 9.24 | 9.19
+
 
 #### Use pre-trained model
 We provide a model pre-trained only on synthetic data (to skip 
@@ -56,9 +65,9 @@ numbers of labeled real samples).
 ##### Use model pre-trained with synthetic data
 Download the model (filename: `model_synth_only.mdl_pretrain`) from 
 [our server](https://files.icg.tugraz.at/d/0e6ccba6689040349f21/).
-To use the default configuration, place the model in `results/pretrained_models/synthetic_only`:
+To use the default configuration, place the model in `results/pretrained_models`:
 ```
-mkdir -p results/pretrained_models
+mkdir results/pretrained_models
 wget -O results/pretrained_models/model_synth_only.mdl_pretrain https://files.icg.tugraz.at/f/e455628c1d8a44289a03/?dl=1
 ```
 If you placed the model at a different location you need to change 
@@ -74,7 +83,7 @@ Download the respective model from
 We (will soon) provide models trained with different numbers of labeled real samples.
 E.g., to use the model trained with all labeled real samples from the NYU dataset:
 ```
-mkdir -p results/pretrained_models
+mkdir results/pretrained_models
 wget -O results/pretrained_models/model_full_n73k.mdl https://files.icg.tugraz.at/f/71cd78dda19e4c4d8f67/?dl=1
 ```
 You can then generate results using this one by:
@@ -114,12 +123,13 @@ creation of the binary files.
 We used Python 2.7.
 To run the code you can, e.g., install the following requirements:
 
- * [PyTorch](http://pytorch.org/) (tested with version 0.4.1; torch, torchvision)
- * [OpenCV](https://opencv.org/) (tested with version 2.4.9)
+ * [PyTorch](http://pytorch.org/) (tested with version 0.4.1 and 1.0.1)
+ * [OpenCV](https://opencv.org/) (tested with version 2.4.9 and 3.1)
  * matplotlib
  * enum34
  * scipy
  * [pycrayon](https://github.com/torrvision/crayon)
+ * progressbar2 (only needed for `main_generate_data_cache.py`)
 
 ### pycrayon
 By default the code sends the data to port 8889 of "localhost". 
