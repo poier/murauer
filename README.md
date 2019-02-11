@@ -52,10 +52,9 @@ mainly due to a bug fix wrt. some non-linearities and
 training with a newer pytorch version (1.0.1)).
 Results using the pre-trained models:
 
-| *n*  | 100 | 1,000 | 10,000 | 72,757 |
-| --- |:---:|:---:|:---:|:---:|:---:|
-| Mean error (mm) | 11.91 | 9.28 | 9.24 | 9.19 |
-
+| *n*             | 100    | 1,000  | 10,000 | 72,757 |
+| --------------- |:------:|:------:|:------:|:------:|
+| Mean error (mm) | 11.91  |  9.28  |  9.24  |  9.19  |
 
 #### Use pre-trained model
 We provide a model pre-trained only on synthetic data (to skip 
