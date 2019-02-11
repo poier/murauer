@@ -129,7 +129,7 @@ To run the code you can, e.g., install the following requirements:
  * enum34
  * scipy
  * [pycrayon](https://github.com/torrvision/crayon)
- * progressbar2 (only needed for `main_generate_data_cache.py`)
+ * progressbar (only needed for `main_generate_data_cache.py`)
 
 ### pycrayon
 By default the code sends the data to port 8889 of "localhost". 

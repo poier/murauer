@@ -36,7 +36,7 @@ import nets.netfactory as netfactory
 from trainer.supertrainer import SuperTrainer
 import eval.handpose_evaluation as hape_eval
 import data.loaderfactory as loaderfactory
-from data.loaderfactory import LoaderMode
+from data.basetypes import LoaderMode
 from util.argparse_helper import parse_arguments_generic
 import util.output as out
 from util.helper import prepare_output_dirs_files, save_params

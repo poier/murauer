@@ -478,3 +478,27 @@ def create_loader_preview(loader_type, args_data, do_use_gpu,
             
     return loader
     
+    
+def create_sequential_nyu_trainloader(args_data):
+    kwargs = {'num_workers': args_data.num_loader_workers}
+    loader = torch.utils.data.DataLoader(
+        NyuHandPoseMultiViewDataset(args_data.nyu_data_basepath, train=True, 
+                                    cropSize=args_data.in_crop_size,
+                                    doJitterCom=args_data.do_jitter_com,
+                                    sigmaCom=args_data.sigma_com,
+                                    doAddWhiteNoise=args_data.do_add_white_noise,
+                                    sigmaNoise=args_data.sigma_noise,
+                                    transform=transforms.ToTensor(),
+                                    useCache=args_data.use_pickled_cache,
+                                    cacheDir=args_data.nyu_data_basepath_pickled, 
+                                    annoType=args_data.anno_type,
+                                    neededCamIdsReal=args_data.needed_cam_ids_train_real,
+                                    neededCamIdsSynth=args_data.needed_cam_ids_train_synth,
+                                    randomSeed=args_data.seed,
+                                    cropSize3D=args_data.crop_size_3d_tuple,
+                                    args_data=args_data),
+        batch_size=args_data.batch_size,
+        **kwargs)
+            
+    return loader
+    

@@ -19,34 +19,22 @@ along with MURAUER.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
 import cv2 # to be imported before torch (for me; so that libgomp is loaded from the system installation)
-
+# Project specific
 from util.argparse_helper import parse_arguments_generic
-from data.NyuHandPoseDataset import NyuHandPoseMultiViewDataset#, NyuHandPoseDataset #, NyuAnnoType
-#from data.IcgHandPoseDataset import IcgHandPoseMultiViewDataset
-from data.basetypes import LoaderMode, DatasetType
-
-# PyTorch
-import torch
-from torchvision import transforms
-import torch.utils.data
-
+import data.loaderfactory as loaderfactory
+from data.basetypes import LoaderMode
+# Other libs
 import numpy as np
-import progressbar
+import progressbar as pb
 
 
 #%% Set configuration
 do_generate_train_set = True
 do_generate_test_set = True
 
-# General parameters
-from config.config import args
-# Parse command-line arguments
-args = parse_arguments_generic(args)
-# Dataset specific parameters
-if args.dataset_type == DatasetType.NYU:
-    from config.config_data_nyu import args_data
-elif args.dataset_type == DatasetType.ICG:
-    from config.config_data_icg import args_data    
+from config.config import args                  # General parameters
+args = parse_arguments_generic(args)            # Parse command-line arguments
+from config.config_data_nyu import args_data    # Dataset specific parameters
 # Merge different configuration parameters into single object
 args.__dict__ = dict(args.__dict__.items() + args_data.__dict__.items())
 
@@ -57,71 +45,18 @@ args.needed_cam_ids_train_real = args.cam_ids_for_pose_train_real
 args.needed_cam_ids_train_synth = args.cam_ids_for_pose_train_synth
 args.needed_cam_ids_test = [1,2,3]
 
+args.use_pickled_cache = True
 args.batch_size = 128
-args.num_loader_workers = 3
-
-
-#%% Helper
-def create_loader(args_data, loader_type):
-    kwargs = {'num_workers': args_data.num_loader_workers}
-    
-    if loader_type == LoaderMode.TRAIN:
-        loader = torch.utils.data.DataLoader(
-            NyuHandPoseMultiViewDataset(args_data.nyu_data_basepath, train=True, 
-                                        cropSize=args_data.in_crop_size,
-                                        doJitterCom=args_data.do_jitter_com,
-                                        sigmaCom=args_data.sigma_com,
-                                        doAddWhiteNoise=args_data.do_add_white_noise,
-                                        sigmaNoise=args_data.sigma_noise,
-                                        transform=transforms.ToTensor(),
-                                        useCache=args_data.use_pickled_cache,
-                                        cacheDir=args_data.nyu_data_basepath_pickled, 
-                                        annoType=args_data.anno_type,
-                                        neededCamIdsReal=args_data.needed_cam_ids_train_real,
-                                        neededCamIdsSynth=args_data.needed_cam_ids_train_synth,
-                                        randomSeed=args_data.seed,
-                                        cropSize3D=args_data.crop_size_3d_tuple,
-                                        args_data=args_data),
-            batch_size=args_data.batch_size,
-            **kwargs)
-                
-    elif loader_type == LoaderMode.TEST:
-        needed_cam_ids_synth = args_data.needed_cam_ids_test if args_data.do_test_on_synth else []
-        
-        loader = torch.utils.data.DataLoader(
-            NyuHandPoseMultiViewDataset(args_data.nyu_data_basepath, train=False, 
-                                        cropSize=args_data.in_crop_size,
-                                        doJitterCom=args_data.do_jitter_com_test,
-                                        sigmaCom=args_data.sigma_com,
-                                        doAddWhiteNoise=args_data.do_add_white_noise_test,
-                                        sigmaNoise=args_data.sigma_noise,
-                                        transform=transforms.ToTensor(),
-                                        useCache=args_data.use_pickled_cache,
-                                        cacheDir=args_data.nyu_data_basepath_pickled, 
-                                        annoType=args_data.anno_type,
-                                        neededCamIdsReal=args_data.needed_cam_ids_test,
-                                        neededCamIdsSynth=needed_cam_ids_synth,
-                                        randomSeed=args_data.seed,
-                                        cropSize3D=args_data.crop_size_3d_tuple,
-                                        args_data=args_data),
-            batch_size=args_data.batch_size,
-            **kwargs)
-                    
-        print("Using {} samples for test".format(len(loader.sampler)))
-        
-    else:
-        raise UserWarning("LoaderMode unknown.")
-            
-    return loader
+args.num_loader_workers = 5
     
 
 #%% Load all samples
 if do_generate_train_set:
-    print("Loading train set...")
-    train_loader = create_loader(args, loader_type=LoaderMode.TRAIN)
-    widgets = [progressbar.Percentage(), progressbar.Bar()]
-    bar = progressbar.ProgressBar(widgets=widgets, max_value=len(train_loader))
+    print("Load train set and generate binary files if missing")
+    train_loader = loaderfactory.create_sequential_nyu_trainloader(args)
+    bar = pb.ProgressBar(widgets=[pb.Percentage(), pb.Bar()], maxval=len(train_loader))
     bar.start()
+    print("Loading samples...")
     for i, (img_c1_r, img_c2_r, img_c3_r, target_c1_r, target_c2_r, target_c3_r, \
             transform_crop_c1_r, transform_crop_c2_r, transform_crop_c3_r, \
             com_c1_r, com_c2_r, com_c3_r, \
@@ -136,13 +71,15 @@ if do_generate_train_set:
         l1s, l2s, l3s = len(img_c1_s), len(img_c2_s), len(img_c3_s)
         assert l1r == l2r == l3r == l1s == l2s == l3s > 0, "batches not equal or empty"
         bar.update(i+1)
+        
+    bar.finish()
             
-if do_generate_test_set:    
-    print("Loading test set...")
-    test_loader = create_loader(args, loader_type=LoaderMode.TEST)
-    widgets = [progressbar.Percentage(), progressbar.Bar()]
-    bar = progressbar.ProgressBar(widgets=widgets, max_value=len(test_loader))
+if do_generate_test_set:
+    print("Load test set and generate binary files if missing")
+    test_loader = loaderfactory.create_dataloader(LoaderMode.TEST, args)
+    bar = pb.ProgressBar(widgets=[pb.Percentage(), pb.Bar()], maxval=len(test_loader))
     bar.start()
+    print("Loading samples...")
     for i, (img_c1_r, img_c2_r, img_c3_r, target_c1_r, target_c2_r, target_c3_r, \
             transform_crop_c1_r, transform_crop_c2_r, transform_crop_c3_r, \
             com_c1_r, com_c2_r, com_c3_r, \
@@ -154,9 +91,10 @@ if do_generate_test_set:
             in enumerate(test_loader):
         # Do something
         l1r, l2r, l3r = len(img_c1_r), len(img_c2_r), len(img_c3_r)
-        l1s, l2s, l3s = len(img_c1_s), len(img_c2_s), len(img_c3_s)
-        assert l1r == l2r == l3r == l1s == l2s == l3s > 0, "batches not equal or empty"
+        assert l1r == l2r == l3r > 0, "batches not equal or empty"
         bar.update(i+1)
+        
+    bar.finish()
 
 if not do_generate_train_set and not do_generate_test_set:
     print("Nothing to be done (both generation flags set false).")
