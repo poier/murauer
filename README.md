@@ -80,7 +80,7 @@ python main_run.py --do-load-pretrained-model
 ##### Use fully trained models
 Download the respective model from 
 [our server](https://files.icg.tugraz.at/d/0e6ccba6689040349f21/).
-We (will soon) provide models trained with different numbers of labeled real samples.
+We provide models trained with different numbers of labeled real samples.
 E.g., to use the model trained with all labeled real samples from the NYU dataset:
 ```
 mkdir results/pretrained_models
@@ -103,10 +103,10 @@ Additionally, we use binary files to speed up training/testing.
 The binary files can be loaded faster, which will usually yield a significant 
 speed up for training and testing. 
 
-To make use of the binary files, you need to set `args_data.use_pickled_cache = True` 
-in `config/config_data_nyu.py`. Then, the binary files are used instead of the original images. 
-If a binary file for an image does not exist already, it is automatically 
-written the first time the image is loaded. 
+Usage of the binary files can be toggled by setting `args_data.use_pickled_cache` (`True`/`False`)
+in `config/config_data_nyu.py`. 
+If `args_data.use_pickled_cache = True` and a binary file for an image does not exist already, 
+it is automatically written the first time the image is loaded. 
 Hence, the process will be slower the first time training/testing is done with 
 `args_data.use_pickled_cache = True`.
 
