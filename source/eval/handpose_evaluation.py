@@ -593,7 +593,7 @@ class HandposeEvaluation(object):
                 t_g = transformPoint2D(gtI[joint], crop_transforms[ind])
                 gtI[joint, 0] = t_g[0]
                 gtI[joint, 1] = t_g[1]
-            self.plotResult(data[ind,0], gtI, jtI, "{}_i{}".format(args.exp_name, ind))        
+            self.plotResult(data[ind,0], gtI, jtI, "{}_i{}".format(args.exp_name, ind))
 
 
     def plotResult(self, dpt, gtcrop, joint, name=None, showGT=True, 
