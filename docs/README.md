@@ -16,7 +16,7 @@
 
 <p>
 <center>
-<a href="https://arxiv.org/abs/1811.09497">[Paper &amp; Supp. (arXiv)]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://ieeexplore.ieee.org/document/8658723">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="./documents/poier2019wacv_poster.pdf">[Poster]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/poier/murauer">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
@@ -57,7 +57,8 @@ making it accessible for a larger range of applications.
 
 MURAUER: Mapping Unlabeled Real Data for Label AUstERity.  
 In WACV 2019.  
-<a href="https://arxiv.org/abs/1811.09497">[Paper & Supp. (arXiv)]</a>
+<a href="https://arxiv.org/abs/1811.09497">[Paper & Supp. (arXiv)]</a>  
+<a href="https://ieeexplore.ieee.org/document/8658723">[Paper (IEEE Xplore; original IEEE publication)]</a>
 
 <a href="https://arxiv.org/abs/1811.09497">
 ![Paper and supplemental material at arXiv.](./images/paper_thumbnails.png)</a>
